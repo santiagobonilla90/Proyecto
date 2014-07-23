@@ -136,4 +136,14 @@ public class Representante {
     public void setEstado(boolean Estado) {
         this.Estado = Estado;
     }
+
+    public Representante(int IdRepresentante, String Cedula, String Nombre, String Apellido, String Telefono, String Direccion, boolean Estado) {
+        this.IdRepresentante = IdRepresentante;
+        this.Cedula = Cedula;
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.Telefono = Telefono;
+        this.Direccion = Direccion;
+        this.Estado = Estado;
+    }    
 }
