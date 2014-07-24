@@ -13,6 +13,10 @@ package Clases;
 public class Estudiante {
     
     private int IdEstudiante;
+
+    public Estudiante(String string, String string0, String string1, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     /**
      * Get the value of IdEstudiante     
      * @return the value of IdEstudiante

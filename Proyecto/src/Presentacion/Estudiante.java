@@ -6,6 +6,10 @@
 
 package Presentacion;
 
+import Gestion.GestionEstudiante;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author santiago
@@ -15,6 +19,9 @@ public class Estudiante extends javax.swing.JFrame {
     /**
      * Creates new form Estudiante
      */
+    
+    GestionEstudiante gestionestudiante= new GestionEstudiante();
+    
     public Estudiante() {
         initComponents();
     }
@@ -31,7 +38,7 @@ public class Estudiante extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtidestudiante = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btngrabar = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -42,7 +49,7 @@ public class Estudiante extends javax.swing.JFrame {
         txtnombre = new javax.swing.JTextField();
         txtapellido = new javax.swing.JTextField();
         txttelefono = new javax.swing.JTextField();
-        txtdirecion = new javax.swing.JTextField();
+        txtdireccion = new javax.swing.JTextField();
         txtestado = new javax.swing.JTextField();
         btnnuevo = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
@@ -56,7 +63,12 @@ public class Estudiante extends javax.swing.JFrame {
 
         jLabel1.setText("Cedula:");
 
-        btngrabar.setText("Guardar");
+        btnguardar.setText("Guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nombre:");
 
@@ -73,6 +85,12 @@ public class Estudiante extends javax.swing.JFrame {
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombreActionPerformed(evt);
+            }
+        });
+
+        txtdireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdireccionActionPerformed(evt);
             }
         });
 
@@ -119,13 +137,13 @@ public class Estudiante extends javax.swing.JFrame {
                                         .addComponent(jLabel5)
                                         .addGap(18, 18, 18)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtdirecion, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(txtdireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                                     .addComponent(txtestado))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnnuevo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btngrabar)
+                        .addComponent(btnguardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnmodificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -149,7 +167,7 @@ public class Estudiante extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel5)
-                            .addComponent(txtdirecion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -167,7 +185,7 @@ public class Estudiante extends javax.swing.JFrame {
                     .addComponent(btnnuevo)
                     .addComponent(btnmodificar)
                     .addComponent(btneliminar)
-                    .addComponent(btngrabar)
+                    .addComponent(btnguardar)
                     .addComponent(btnsalir))
                 .addContainerGap(207, Short.MAX_VALUE))
         );
@@ -195,6 +213,29 @@ public class Estudiante extends javax.swing.JFrame {
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        gestionestudiante.getEstudiante().setIdEstudiante(Integer.parseInt(txtidestudiante.getText()));
+        gestionestudiante.getEstudiante().setCedula(txtcedula.getText());
+        gestionestudiante.getEstudiante().setNombre(txtnombre.getText());
+        gestionestudiante.getEstudiante().setApellido(txtapellido.getText());
+        gestionestudiante.getEstudiante().setTelefono(txttelefono.getText());
+        gestionestudiante.getEstudiante().setDireccion(txtdireccion.getText());
+        gestionestudiante.getEstudiante().setEstado(Boolean.parseBoolean(txtestado.getText()));
+        
+        try{
+        gestionestudiante.Guardar();
+            JOptionPane.showMessageDialog(this, "La informacion se guardo correctamente.");
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+            
+        }
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void txtdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtdireccionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,7 +274,7 @@ public class Estudiante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btneliminar;
-    private javax.swing.JButton btngrabar;
+    private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnsalir;
@@ -247,7 +288,7 @@ public class Estudiante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtcedula;
-    private javax.swing.JTextField txtdirecion;
+    private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtestado;
     private javax.swing.JTextField txtidestudiante;
     private javax.swing.JTextField txtnombre;
