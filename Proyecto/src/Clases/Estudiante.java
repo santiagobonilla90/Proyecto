@@ -14,9 +14,9 @@ public class Estudiante {
     
     private int IdEstudiante;
 
-    public Estudiante(String string, String string0, String string1, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public Estudiante(String string, String string0, String string1, int i) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     /**
      * Get the value of IdEstudiante     
      * @return the value of IdEstudiante
@@ -123,13 +123,13 @@ public class Estudiante {
         this.Direccion = Direccion;
     }
 
-    private boolean Estado;
+    private int Estado;
 
     /**
      * Get the value of Estado
      * @return the value of Estado
      */
-    public boolean Estado() {
+    public int Estado() {
         return Estado;
     }
 
@@ -137,11 +137,11 @@ public class Estudiante {
      * Set the value of Estado    
      * @param Estado new value of Estado
      */
-    public void setEstado(boolean Estado) {
+    public void setEstado(int Estado) {
         this.Estado = Estado;
     }
 
-    public Estudiante(int IdEstudiante, String Cedula, String Nombre, String Apellido, String Telefono, String Direccion, boolean Estado) {
+    public Estudiante(int IdEstudiante, String Cedula, String Nombre, String Apellido, String Telefono, String Direccion, int Estado) {
         this.IdEstudiante = IdEstudiante;
         this.Cedula = Cedula;
         this.Nombre = Nombre;

@@ -97,6 +97,11 @@ public class Estudiante extends javax.swing.JFrame {
         btnnuevo.setText("Nuevo");
 
         btnsalir.setText("Salir");
+        btnsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalirActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setText("Modificar");
 
@@ -221,7 +226,7 @@ public class Estudiante extends javax.swing.JFrame {
         gestionestudiante.getEstudiante().setApellido(txtapellido.getText());
         gestionestudiante.getEstudiante().setTelefono(txttelefono.getText());
         gestionestudiante.getEstudiante().setDireccion(txtdireccion.getText());
-        gestionestudiante.getEstudiante().setEstado(Boolean.parseBoolean(txtestado.getText()));
+        gestionestudiante.getEstudiante().setEstado(Integer.parseInt(txtestado.getText()));
         
         try{
         gestionestudiante.Guardar();
@@ -236,6 +241,10 @@ public class Estudiante extends javax.swing.JFrame {
     private void txtdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdireccionActionPerformed
+
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_btnsalirActionPerformed
 
     /**
      * @param args the command line arguments

@@ -16,12 +16,12 @@ import java.sql.SQLException;
  */
 public class GestionEstudiante implements IGestion {
     
-    private Estudiante estudiante= new Estudiante ("","","",0);
+    private Estudiante estudiante= new Estudiante (0,"","","","","",0);
 
     public GestionEstudiante() {
-        Conexion.setCadena("jdbc:mysql://localhost/facturacion");
-        Conexion.setUsuario("root");
-        Conexion.setClave("");
+        Conexion.setCadena("jdbc:db2://localhost:50000/INSEDUCA");
+        Conexion.setUsuario("db2admin");
+        Conexion.setClave("db2admin");
         
     }
 
@@ -36,7 +36,8 @@ public class GestionEstudiante implements IGestion {
     public void Guardar() throws SQLException {
         try{
         Conexion.GetInstancia().Conectar();
-        Conexion.GetInstancia().Ejecutar("insert into Estudiante (IdeEstudiante,Cedula, Nombre, Apellido, Telefono, Direccion, Estado) values ('"+estudiante.getIdEstudiante()+"','"+estudiante.getCedula()+"','"+"','"+estudiante.getNombre()+"','"+estudiante.getApellido()+"','"+"','"+estudiante.getTelefono()+"','"+estudiante.getDireccion()+"','"+"', "+estudiante.Estado()+")");
+        Conexion.GetInstancia().Ejecutar("insert into Estudiante (IdEstudiante,Cedula, Nombre, Apellido, Telefono, Direccion, Estado) "
+                + "values ('"+estudiante.getIdEstudiante()+estudiante.getCedula()+estudiante.getNombre()+estudiante.getApellido()+estudiante.getTelefono()+estudiante.getDireccion()+estudiante.Estado()+")");
         Conexion.GetInstancia().Desconectar();    
         }
         catch(SQLException ex){
