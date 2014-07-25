@@ -7,37 +7,36 @@
 package Gestion;
 
 import CapaDatos.Conexion;
-import Clases.Estudiante;
+import Clases.EstructuraFamiliar;
 import java.sql.SQLException;
 
 /**
- *
  * @author santiago
  */
-public class GestionEstudiante implements IGestion {
+public class GestionEstructuraFamiliar implements IGestion{
     
-    private Estudiante estudiante= new Estudiante (0,"","","","","",0);
-
-    public GestionEstudiante() {
+    private EstructuraFamiliar estructuraFamiliar=new EstructuraFamiliar (0,"","","","",0,"","",0);
+    
+    public GestionEstructuraFamiliar(){
         Conexion.setCadena("jdbc:db2://localhost:50000/INSEDUCA");
         Conexion.setUsuario("db2admin");
         Conexion.setClave("db2admin");
+    }
+
+    public EstructuraFamiliar getEstructuraFamiliar(){
+        return estructuraFamiliar;
+    }
+    
+      public void setEstructuraFamiliar (EstructuraFamiliar estructuraFamiliar){
+        this.estructuraFamiliar=estructuraFamiliar;
+    }
         
-    }
-
-     public Estudiante getEstudiante() {
-        return estudiante;
-    }
-    public void setEstudiante (Estudiante estudiante){
-        this.estudiante=estudiante;
-    }
-
     @Override
     public void Guardar() throws SQLException {
-        try{
+         try{
         Conexion.GetInstancia().Conectar();
-        Conexion.GetInstancia().Ejecutar("insert into Estudiante (IdEstudiante,Cedula, Nombre, Apellido, Telefono, Direccion, Estado) "
-                + "values ('"+estudiante.getIdEstudiante()+estudiante.getCedula()+estudiante.getNombre()+estudiante.getApellido()+estudiante.getTelefono()+estudiante.getDireccion()+estudiante.getEstado()+")");
+        Conexion.GetInstancia().Ejecutar("insert into EstructuraFamiliar (IdEstructuraFamiliar,Cedula, Nombre, Apellido, Telefono, Direccion, Estado) "
+                + "values ('"+estructuraFamiliar.getIdEstructuraFamiliar()+estructuraFamiliar.getNombres()+estructuraFamiliar.getApellido()+estructuraFamiliar.getCedula()+estructuraFamiliar.getEdad()+estructuraFamiliar.getInstruccion()+estructuraFamiliar.getOcupacion()+estructuraFamiliar.getBono()+")");
         Conexion.GetInstancia().Desconectar();    
         }
         catch(SQLException ex){
@@ -63,5 +62,6 @@ public class GestionEstudiante implements IGestion {
     @Override
     public void Consultar() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    }
+    
 }

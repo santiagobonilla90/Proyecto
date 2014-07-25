@@ -129,7 +129,7 @@ public class Estudiante {
      * Get the value of Estado
      * @return the value of Estado
      */
-    public int Estado() {
+    public int getEstado() {
         return Estado;
     }
 
