@@ -36,8 +36,7 @@ public class GestionEstudiante implements IGestion {
     public void Guardar() throws SQLException {
         try{
         Conexion.GetInstancia().Conectar();
-        Conexion.GetInstancia().Ejecutar("insert into Estudiante (IdEstudiante,Cedula, Nombre, Apellido, Telefono, Direccion, Estado) "
-                + "values ('"+estudiante.getIdEstudiante()+","+estudiante.getCedula()+","+estudiante.getNombre()+","+estudiante.getApellido()+","+estudiante.getTelefono()+","+estudiante.getDireccion()+","+estudiante.getEstado()+")");
+        Conexion.GetInstancia().Ejecutar("insert into Estudiante (IdEstudiante, Cedula, Nombre, Apellido, Telefono, Direccion, Estado) values ('"+estudiante.getIdEstudiante()+"','"+estudiante.getCedula()+"','"+estudiante.getNombre()+"','"+estudiante.getApellido()+"','"+estudiante.getTelefono()+"','"+estudiante.getDireccion()+"','"+estudiante.getEstado()+"')");
         Conexion.GetInstancia().Desconectar();    
         }
         catch(SQLException ex){

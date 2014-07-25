@@ -63,7 +63,7 @@ public class Conexion {
      
      public void Ejecutar (String Cadena) throws SQLException{
          try{
-             Sentencia= ConexionDatos.prepareStatement(Cadena);
+         Sentencia= ConexionDatos.prepareStatement(Cadena);
          Sentencia.executeUpdate();
          }
          catch(SQLException ex){
