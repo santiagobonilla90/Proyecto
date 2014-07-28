@@ -11,7 +11,7 @@ import Clases.EstructuraFamiliar;
 import java.sql.SQLException;
 
 /**
- * @author santiago
+ * @author 
  */
 public class GestionEstructuraFamiliar implements IGestion{
     

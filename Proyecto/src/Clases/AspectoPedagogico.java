@@ -7,7 +7,7 @@
 package Clases;
 
 /**
- * @author santiago
+ * @author 
  */
 public class AspectoPedagogico {
     

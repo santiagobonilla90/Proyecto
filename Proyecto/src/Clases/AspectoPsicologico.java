@@ -9,7 +9,7 @@ package Clases;
 import java.util.Date;
 
 /**
- * @author santiago
+ * @author
  */
 public class AspectoPsicologico {
     

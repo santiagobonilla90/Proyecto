@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author santiago
+ * @author 
  */
 public class GestionEstudiante implements IGestion {
     

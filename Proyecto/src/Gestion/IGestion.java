@@ -9,7 +9,7 @@ package Gestion;
 import java.sql.SQLException;
 
 /**
- * @author santiago
+ * @author 
  */
 public interface IGestion {
     public void Guardar () throws SQLException;

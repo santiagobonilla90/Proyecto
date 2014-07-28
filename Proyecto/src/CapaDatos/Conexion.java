@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author santiago
+ * @author 
  */
 public class Conexion {
    Connection ConexionDatos= null;

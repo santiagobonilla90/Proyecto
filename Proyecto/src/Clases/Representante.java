@@ -8,7 +8,7 @@ package Clases;
 
 /**
  *
- * @author santiago
+ * @author 
  */
 public class Representante {
     

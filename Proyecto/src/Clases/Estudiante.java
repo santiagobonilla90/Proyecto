@@ -8,15 +8,12 @@ package Clases;
 
 /**
  *
- * @author santiago
+ * @author 
  */
 public class Estudiante {
     
     private int IdEstudiante;
 
-//    public Estudiante(String string, String string0, String string1, int i) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
     /**
      * Get the value of IdEstudiante     
      * @return the value of IdEstudiante
@@ -71,14 +68,14 @@ public class Estudiante {
 
     private String Apellido;
 
-    /**
-     * Get the value of Apellido
-     * @return the value of Apellido
-     */
     public String getApellido() {
         return Apellido;
     }
 
+    /**
+     * Get the value of Apellido
+     * @return the value of Apellido
+     */
     /**
      * Set the value of Apellido
      * @param Apellido new value of Apellido
